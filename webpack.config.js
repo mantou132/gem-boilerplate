@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
-  entry: './src/',
+  entry: './src/main',
   module: {
     rules: [
       {

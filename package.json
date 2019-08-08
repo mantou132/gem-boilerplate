@@ -2,7 +2,7 @@
   "name": "gem-boilerplate",
   "version": "0.0.1",
   "description": "gem app boilerplate",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "lint": "eslint --ext .ts --fix src/",
     "start": "webpack-dev-server --open",
