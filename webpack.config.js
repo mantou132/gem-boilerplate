@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
   entry: './src/',
@@ -20,7 +23,22 @@ module.exports = {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, 'build'),
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin(),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      include: 'initial',
+      fileBlacklist: [/\.map$/, /hot-update\.js$/],
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'prefetch',
+      include: 'asyncChunks',
+    }),
+    new CopyWebpackPlugin([{ from: './public', to: './' }]),
+    // manifest
+    // service worker
+  ],
   devServer: {
     contentBase: './build',
     historyApiFallback: true,
