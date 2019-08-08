@@ -1,5 +1,4 @@
 {
-  "lit-plugin.skipMissingImports": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.autoFixOnSave": true,
   "editor.formatOnSave": true,
