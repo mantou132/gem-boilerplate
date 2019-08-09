@@ -1,4 +1,4 @@
-import { GemElement, html } from '@mantou/gem';
+import { GemElement, html, repeat } from '@mantou/gem';
 import { posts, fetchPosts } from '../store/posts';
 
 class Home extends GemElement {
@@ -8,20 +8,19 @@ class Home extends GemElement {
   }
   render() {
     return html`
-      <style>
-        :host {
-          width: 30em;
-        }
-      </style>
-      <ul>
-        ${posts.loading
-          ? 'loading...'
-          : posts.list.map(
-              ({ body }) => html`
-                <li>${body}</li>
-              `,
-            )}
-      </ul>
+      ${posts.loading
+        ? 'loading...'
+        : html`
+            <ul>
+              ${repeat(
+                posts.list,
+                ({ id }) => id,
+                ({ body }) => html`
+                  <li>${body}</li>
+                `,
+              )}
+            </ul>
+          `}
     `;
   }
 }
