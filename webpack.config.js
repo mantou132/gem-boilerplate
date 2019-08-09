@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   entry: './src/main',
@@ -24,6 +25,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
   plugins: [
+    new ManifestPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin(),
     new PreloadWebpackPlugin({
