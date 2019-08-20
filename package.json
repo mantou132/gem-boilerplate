@@ -4,7 +4,7 @@
   "description": "gem app boilerplate",
   "main": "src/index.ts",
   "scripts": {
-    "lint": "eslint --ext .ts --fix src/",
+    "lint": "tsc --noEmit && eslint --ext .ts --fix src/",
     "start": "webpack-dev-server --open",
     "build": "webpack"
   },
