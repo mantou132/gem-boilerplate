@@ -1,9 +1,9 @@
 import { createStore, updateStore } from '@mantou/gem';
+
 import * as api from '../service/api';
-import { Post } from '../service/api';
 
 interface PostStore {
-  list: Post[];
+  list: api.Post[];
   loading: boolean;
 }
 
