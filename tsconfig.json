@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "sourceMap": true,
-    "noImplicitAny": false,
     "module": "esnext",
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "target": "es6",
     "lib": ["es2018", "dom"],
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": ["./src/types"]
   },
   "include": ["src"]
 }
