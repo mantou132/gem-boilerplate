@@ -2,8 +2,8 @@ import { html, GemElement } from '@mantou/gem';
 
 import '@mantou/gem/elements/route';
 import '@mantou/gem/elements/title';
-import './elements/nav';
-import routes from './routes';
+import 'src/elements/nav';
+import routes from 'src/routes';
 
 class App extends GemElement {
   render() {

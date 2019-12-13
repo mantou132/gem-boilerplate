@@ -1,8 +1,8 @@
 import { html } from '@mantou/gem';
 import { RouteItem } from '@mantou/gem/elements/route';
 
-import './pages/home';
-import './pages/about';
+import 'src/pages/home';
+import 'src/pages/about';
 
 const home: RouteItem = {
   title: 'Home',

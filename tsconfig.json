@@ -1,16 +1,22 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "alwaysStrict": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
+    // "noImplicitAny": true,
     "strictNullChecks": true,
     "sourceMap": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "target": "es6",
-    "lib": ["es2018", "dom"],
-    "typeRoots": ["./src/types"]
+    "lib": ["es2020", "dom"],
+    "typeRoots": ["src/types"],
+    "paths": {
+      "src": ["src/*"]
+    }
   },
   "include": ["src"]
 }

@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "tsc --noEmit && eslint --ext .ts --fix src/",
     "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "clean": "rimraf build",
+    "build": "npm run clean && webpack"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/mantou132/gem-boilerplate#readme",
   "dependencies": {
-    "@mantou/gem": "^0.1.12"
+    "@mantou/gem": "^0.2.13"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.6.1",
@@ -32,6 +33,7 @@
     "copy-webpack-plugin": "^5.0.5",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "html-webpack-plugin": "^4.0.0-beta.5",
@@ -39,7 +41,9 @@
     "lint-staged": "^8.2.1",
     "preload-webpack-plugin": "^3.0.0-beta.4",
     "prettier": "^1.19.0",
+    "rimraf": "^3.0.0",
     "ts-loader": "^6.2.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",

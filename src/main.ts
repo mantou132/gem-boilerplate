@@ -1,5 +1,5 @@
 import { render, html } from '@mantou/gem';
-import './';
+import 'src';
 
 render(
   html`

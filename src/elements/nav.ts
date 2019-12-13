@@ -1,7 +1,7 @@
 import { GemElement, html } from '@mantou/gem';
 import '@mantou/gem/elements/link';
 
-import routes from '../routes';
+import routes from 'src/routes';
 
 class Nav extends GemElement {
   render() {

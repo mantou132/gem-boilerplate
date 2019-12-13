@@ -1,6 +1,6 @@
 import { GemElement, html, repeat } from '@mantou/gem';
 
-import { posts, fetchPosts } from '../store/posts';
+import { posts, fetchPosts } from 'src/store/posts';
 
 class Home extends GemElement {
   static observedStores = [posts];

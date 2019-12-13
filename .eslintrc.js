@@ -12,6 +12,11 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  settings: {
+    "import/resolver": {
+      typescript: {} // this loads <rootdir>/tsconfig.json to eslint
+    },
+  },
   rules: {
     // https://github.com/benmosher/eslint-plugin-import/blob/HEAD/docs/rules/order.md
     'import/order': ['error', { 'newlines-between': 'always-and-inside-groups' }],
