@@ -7,6 +7,9 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+/**
+ * @type {import('webpack/declarations/WebpackOptions').WebpackOptions}
+ */
 module.exports = {
   entry: './src/main',
   module: {
