@@ -1,9 +1,10 @@
-import { GemElement, html, repeat } from '@mantou/gem';
+import { GemElement, html, customElement, connectStore, repeat } from '@mantou/gem';
 
 import { posts, fetchPosts } from 'src/store/posts';
 
-class Home extends GemElement {
-  static observedStores = [posts];
+@customElement('app-home')
+@connectStore(posts)
+export class Home extends GemElement {
   mounted() {
     fetchPosts();
   }
@@ -25,5 +26,3 @@ class Home extends GemElement {
     `;
   }
 }
-
-customElements.define('app-home', Home);

@@ -1,6 +1,7 @@
-import { GemElement, html } from '@mantou/gem';
+import { GemElement, html, customElement } from '@mantou/gem';
 
-class About extends GemElement {
+@customElement('app-about')
+export class About extends GemElement {
   render() {
     return html`
       <p>这是个模板 App</p>
@@ -8,5 +9,3 @@ class About extends GemElement {
     `;
   }
 }
-
-customElements.define('app-about', About);

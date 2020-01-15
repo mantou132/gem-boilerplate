@@ -18,7 +18,8 @@ module.exports = {
         test: /\.ts$/,
         loader: 'ts-loader',
         options: {
-          allowTsInNodeModules: false,
+          // 导入自定义元素源代码才有 tag、类型绑定
+          allowTsInNodeModules: true,
         },
       },
     ],
