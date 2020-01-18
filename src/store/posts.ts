@@ -13,7 +13,6 @@ export const fetchPosts = async () => {
   updateStore(posts, { loading: true });
   try {
     const list = await api.getPosts();
-    await new Promise(resolve => setTimeout(resolve, 1000));
     updateStore(posts, { list });
   } finally {
     updateStore(posts, { loading: false });

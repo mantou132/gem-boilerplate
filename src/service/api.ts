@@ -3,10 +3,10 @@ import request from 'src/service/request';
 export interface Post {
   id: number;
   userId: number;
-  title: 'string';
-  body: 'string';
+  title: string;
+  body: string;
 }
 
 export async function getPosts(): Promise<Post[]> {
-  return request('https://jsonplaceholder.typicode.com/posts');
+  return request('/api/posts');
 }

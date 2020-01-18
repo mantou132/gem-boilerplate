@@ -5,7 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
+const { createMiddleware } = require('umi-mock');
 
 /**
  * @type {import('webpack/declarations/WebpackOptions').WebpackOptions}
@@ -51,8 +52,29 @@ module.exports = {
     // service worker
   ],
   devServer: {
+    host: '0.0.0.0',
     contentBase: './build',
     historyApiFallback: true,
+    ...(process.env.API === 'mock'
+      ? {
+          before: function(app) {
+            app.use(
+              createMiddleware({
+                cwd: __dirname,
+                absSrcPath: path.join(__dirname, 'src'),
+              }).middleware,
+            );
+          },
+        }
+      : {
+          proxy: {
+            '/api': {
+              changeOrigin: true,
+              target: process.env.API || 'https://jsonplaceholder.typicode.com',
+              pathRewrite: { '^/api': '' },
+            },
+          },
+        }),
   },
   devtool: 'source-map',
 };

@@ -6,7 +6,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
