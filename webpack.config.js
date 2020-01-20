@@ -53,6 +53,7 @@ module.exports = {
   ],
   devServer: {
     host: '0.0.0.0',
+    disableHostCheck: true,
     contentBase: './build',
     historyApiFallback: true,
     ...(process.env.API === 'mock'
