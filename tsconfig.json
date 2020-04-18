@@ -9,11 +9,11 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "target": "es6",
     "lib": ["es2020", "dom"],
-    "typeRoots": ["node_mobules/@types", "src/types"],
     "paths": {
       "src": ["src/*"]
     }
