@@ -47,7 +47,7 @@ module.exports = {
       rel: 'prefetch',
       include: 'asyncChunks',
     }),
-    new CopyWebpackPlugin([{ from: './public', to: './' }]),
+    new CopyWebpackPlugin({ patterns: [{ from: './public', to: './' }] }),
     // manifest
     // service worker
   ],
