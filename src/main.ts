@@ -4,10 +4,6 @@ import 'src/';
 render(
   html`
     <style>
-      html,
-      body {
-        height: 100%;
-      }
       body {
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
@@ -19,7 +15,7 @@ render(
         align-items: center;
       }
       app-root {
-        width: 50%;
+        width: 100%;
       }
     </style>
     <app-root></app-root>
