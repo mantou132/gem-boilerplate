@@ -7,17 +7,13 @@ import 'src/pages/about';
 const home: RouteItem = {
   title: 'Home',
   pattern: '/',
-  content: html`
-    <app-home></app-home>
-  `,
+  content: html`<app-home></app-home>`,
 };
 
 const about: RouteItem = {
   title: 'About',
   pattern: '/about',
-  content: html`
-    <app-about></app-about>
-  `,
+  content: html`<app-about></app-about>`,
 };
 
 export default {

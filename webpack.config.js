@@ -89,7 +89,7 @@ module.exports = {
     historyApiFallback: true,
     ...(process.env.API === 'mock'
       ? {
-          before: function(app) {
+          before: function (app) {
             app.use(
               createMiddleware({
                 cwd: __dirname,

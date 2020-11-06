@@ -17,9 +17,7 @@ export class Home extends GemElement {
               ${repeat(
                 posts.list,
                 ({ id }) => id,
-                ({ body }) => html`
-                  <li>${body}</li>
-                `,
+                ({ body }) => html`<li>${body}</li>`,
               )}
             </ul>
           `}
