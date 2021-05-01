@@ -6,14 +6,15 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
+    "skipLibCheck": true,
     "target": "es6",
-    "lib": ["es2020", "dom"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "paths": {
       "src": ["src/*"]
     }

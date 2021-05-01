@@ -1,11 +1,10 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 const { createMiddleware } = require('umi-mock');
 
@@ -60,7 +59,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
   plugins: [
-    new ManifestPlugin(),
+    new WebpackManifestPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: webManifestConfig.name,
@@ -70,21 +69,11 @@ module.exports = {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
       },
     }),
-    new PreloadWebpackPlugin({
-      rel: 'preload',
-      include: 'initial',
-      fileBlacklist: [/\.map$/, /hot-update\.js$/],
-    }),
-    new PreloadWebpackPlugin({
-      rel: 'prefetch',
-      include: 'asyncChunks',
-    }),
     new WebpackPwaManifest(webManifestConfig),
     new GenerateSW(),
   ],
   devServer: {
-    host: '0.0.0.0',
-    disableHostCheck: true,
+    open: true,
     contentBase: './build',
     historyApiFallback: true,
     ...(process.env.API === 'mock'

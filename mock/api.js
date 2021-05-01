@@ -4,8 +4,8 @@ const fs = require('fs');
 const { mock } = require('intermock');
 const { delay } = require('roadhog-api-doc');
 
-const readFiles = files => {
-  return files.map(file => {
+const readFiles = (files) => {
+  return files.map((file) => {
     return [file, fs.readFileSync(path.resolve(__dirname, file), { encoding: 'utf8' })];
   });
 };
