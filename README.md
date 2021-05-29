@@ -4,9 +4,9 @@
 
 ```bash
 # install dependencies
-npm i
+yarn
 # development
-npm start
+yarn start
 # build project
-npm run build
+yarn run build
 ```

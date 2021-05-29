@@ -29,7 +29,7 @@ const webManifestConfig = {
 };
 
 /**
- * @type {import('webpack/declarations/WebpackOptions').WebpackOptions}
+ * @type {import('webpack').Configuration}
  */
 module.exports = {
   entry: './src/main',
