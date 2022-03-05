@@ -1,14 +1,18 @@
 {
-  "editor.formatOnSave": false,
   "typescript.validate.enable": true,
-  "typescript.format.enable": false,
   "javascript.validate.enable": true,
-  "javascript.format.enable": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "eslint.options": { "ignorePath": ".gitignore" },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.validate": ["typescript", "typescriptreact"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[xml]": {
+    "editor.defaultFormatter": null
+  },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll": true
   }
 }

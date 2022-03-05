@@ -1,4 +1,5 @@
 const path = require('path');
+const process = require('process');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -7,6 +8,9 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 const { createMiddleware } = require('umi-mock');
+
+const isProd = process.env.NODE_ENV === 'production';
+const isAPIMock = process.env.API === 'mock';
 
 /**
  * @type {import('webpack-pwa-manifest').ManifestOptions}
@@ -69,22 +73,23 @@ module.exports = {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
       },
     }),
-    new WebpackPwaManifest(webManifestConfig),
-    new GenerateSW(),
-  ],
+  ].concat(isProd ? [new WebpackPwaManifest(webManifestConfig), new GenerateSW()] : []),
   devServer: {
     open: true,
-    contentBase: './build',
+    static: {
+      directory: './build',
+    },
     historyApiFallback: true,
-    ...(process.env.API === 'mock'
+    ...(isAPIMock
       ? {
-          before: function (app) {
-            app.use(
+          setupMiddlewares: (middlewares, devServer) => {
+            devServer.app.use(
               createMiddleware({
                 cwd: __dirname,
                 absSrcPath: path.join(__dirname, 'src'),
               }).middleware,
             );
+            return middlewares;
           },
         }
       : {

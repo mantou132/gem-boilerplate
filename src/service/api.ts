@@ -1,4 +1,4 @@
-import request from 'src/service/request';
+import { request } from '@mantou/gem/helper/request';
 
 export interface Post {
   id: number;
@@ -7,6 +7,6 @@ export interface Post {
   body: string;
 }
 
-export async function getPosts(): Promise<Post[]> {
-  return request('/api/posts');
+export async function getPosts() {
+  return request<Post[]>('/api/posts');
 }

@@ -1,7 +1,8 @@
 import { GemElement, html, customElement } from '@mantou/gem';
-import '@mantou/gem/elements/link';
 
 import routes from 'src/routes';
+
+import '@mantou/gem/elements/link';
 
 @customElement('app-nav')
 export class Nav extends GemElement {
@@ -9,17 +10,14 @@ export class Nav extends GemElement {
     return html`
       <style>
         :host {
-          display: block;
-          text-align: center;
+          display: flex;
+          gap: 0.5em;
+          justify-content: center;
         }
         gem-active-link {
-          display: inline-block;
-        }
-        gem-active-link:hover {
           cursor: pointer;
         }
-        gem-active-link[active] {
-          text-decoration: underline;
+        gem-active-link:where([data-active], :--active) {
           color: green;
         }
       </style>
